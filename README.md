@@ -153,6 +153,7 @@ uncommented stuff in my config/initializers/cors.rb
 **********
 
 * Deploy in HEROKU
+
 first we create file in controllers: 
 1.
 rails g controller welcome
@@ -174,3 +175,26 @@ root 'welcome#index'
 
 4. 
 now push all to github
+5. 
+now we setting up my back end part on heroku and giving it a name (mini-project-coffee):
+heroku create mini-project-coffee
+6. 
+git push heroku master
+
+7. 
+open heroku in a browser=> in terminal run:
+
+heroku open
+
+8. 
+than we migrating out database into heroku by running: 
+
+heroku run rails db:migrate
+
+9. 
+heroku run rails db:seed
+
+
+
+
+

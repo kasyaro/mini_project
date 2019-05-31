@@ -194,7 +194,14 @@ heroku run rails db:migrate
 9. 
 heroku run rails db:seed
 
+* Touch up for fron end 
+in my controllers/coffee_controllers.rb I limit index route to show only 9 coffee out of 50
+# GET /coffees
+  def index
+    @coffees = Coffee.all.sample(9)
 
+    render json: @coffees.to_json(include: :reviews)
+  end
 
 
 

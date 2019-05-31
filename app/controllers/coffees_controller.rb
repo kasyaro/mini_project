@@ -3,6 +3,7 @@ class CoffeesController < ApplicationController
 
   # GET /coffees
   def index
+   # @coffees = Coffee.all.sample(9)
     @coffees = Coffee.all
 
     render json: @coffees.to_json(include: :reviews)

@@ -4,7 +4,7 @@ class CoffeesController < ApplicationController
   # GET /coffees
   def index
    # @coffees = Coffee.all.sample(9)
-    @coffees = Coffee.all
+    @coffees = Coffee.all.reverse
 
     render json: @coffees.to_json(include: :reviews)
   end

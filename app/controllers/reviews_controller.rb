@@ -18,7 +18,9 @@ class ReviewsController < ApplicationController
   def create
     p 'Im here'
     @review = Review.new(review_params)
+
 @review.coffee_id = params[:coffee_id]
+
     if @review.save
       render json: @review, status: :created
     else

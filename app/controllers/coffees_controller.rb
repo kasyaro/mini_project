@@ -14,16 +14,17 @@ class CoffeesController < ApplicationController
     render json: @coffee.to_json(include: :reviews)
   end
 
-  # # POST /coffees
-  # def create
-  #   @coffee = Coffee.new(coffee_params)
+  # POST /coffees
+  def create
+    @coffee = Coffee.new(coffee_params)
+    #@coffee.coffee_id = params[:coffee_id]
 
-  #   if @coffee.save
-  #     render json: @coffee, status: :created, location: @coffee
-  #   else
-  #     render json: @coffee.errors, status: :unprocessable_entity
-  #   end
-  # end
+    if @coffee.save
+      render json: @coffee, status: :created
+    else
+      render json: @coffee.errors, status: :unprocessable_entity
+    end
+  end
 
   # PATCH/PUT /coffees/1
   def update
@@ -34,10 +35,10 @@ class CoffeesController < ApplicationController
     end
   end
 
-  # DELETE /coffees/1
-#   def destroy
-#     @coffee.destroy
-#   end
+  #DELETE /coffees/1
+  def destroy
+    @coffee.destroy
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
